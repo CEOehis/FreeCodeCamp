@@ -1,14 +1,13 @@
 'use strict'
-var regularStreamers = ['ESL_SC2', 'OgamingSC2', 'cretetion', 'freecodecamp', 'storbeck', 'habathcx', 'RobotCaleb', 'noobs2ninjas']
+let regularStreamers = ['ESL_SC2', 'OgamingSC2', 'cretetion', 'freecodecamp', 'storbeck', 'habathcx', 'RobotCaleb', 'noobs2ninjas']
 
-var queryUrl
+let queryUrl
 for (var i = 0; i < regularStreamers.length; i++) {
   queryUrl = 'https://api.twitch.tv/kraken/streams/' + regularStreamers[i]
   getUserInfo(queryUrl)
 }
 
 var display = document.getElementById('users')
-var list = document.createElement('ul')
 
 function getUserInfo (url) {
   var request = new XMLHttpRequest()
@@ -29,7 +28,7 @@ function parse (jsonObj) {
   var statusIcon
   if (jsonObj.hasOwnProperty('stream') && jsonObj.stream == null) {
     var url = jsonObj._links.channel
-    getOfflineUser(url)
+    getUserInfo(url)
     return
   }
 
@@ -42,6 +41,8 @@ function parse (jsonObj) {
     status = 'offline'
     statusIcon = 'fa fa-exclamation'
   }
+
+  var list = document.createElement('ul')
 
   var user = document.createElement('li')
   user.setAttribute('class', 'user-display ' + status)
@@ -63,13 +64,4 @@ function parse (jsonObj) {
   user.appendChild(userLink)
   list.appendChild(user)
   display.appendChild(list)
-}
-
-function getOfflineUser (url) {
-  var request = new XMLHttpRequest()
-  request.open('GET', url)
-  request.responseType = 'json'
-  request.setRequestHeader('Client-ID', 'd990njzbdstbfrn941lh3eifqr3qpe')
-  request.onload = handleResponse
-  request.send()
 }
