@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>Twitch.tv api | freecodecamp zipline</title>
     <link rel="stylesheet" type="text/css" href="./Content/normalize.css">
     <link rel="stylesheet" type="text/css" href="./Content/skeleton.css">
     <!-- fontsawesome -->
@@ -15,32 +15,19 @@
 </head>
 
 <body>
-    <div class="container text-center">
-        <img id="logo" src="./imgs/twitch.png" class="" alt="twitch logo">
-        <div class="container">
-            <div id="menu" class="header">
-                <ul class="row">
-                    <li id="all-users" class="user-category four columns">All</li>
-                    <li id="online-users" class="user-category four columns">Online</li>
-                    <li id="offline-users" class="user-category four columns">Offline</li>
-                </ul>
-            </div>
-            <div class="display">
-                <ul id="users">
-                    <li class="user-display online-users"><img src="./imgs/Desert.jpg" class="testimony"><span class="user">ESL_SC2</span><i class="fa fa-exclamation" aria-hidden="true"></i></li>
-                    <li class="user-display online-users"><img src="./imgs/Lighthouse.jpg" class="testimony"><span class="user">OgamingSC2</span><i class="fa fa-check" aria-hidden="true"></i></li>
-                    <li class="user-display offline-users"><img src="./imgs/Penguins.jpg" class="testimony"><span class="user">cretetion</span><i class="fa fa-twitch" aria-hidden="true"></i></li>
-                    <li class="user-display online-users"><img src="./imgs/Desert.jpg" class="testimony"><span class="user">freecodecamp</span><i class="fa fa-exclamation" aria-hidden="true"></i></li>
-                    <li class="user-display offline-users"><img src="./imgs/Lighthouse.jpg" class="testimony"><span class="user">storbeck</span><i class="fa fa-check" aria-hidden="true"></i></li>
-                    <li class="user-display online-users"><img src="./imgs/Penguins.jpg" class="testimony"><span class="user">habathcx</span><i class="fa fa-twitch" aria-hidden="true"></i></li>
-                </ul>
-            </div>
-        </div>
-        <!-- jquery -->
-        <script type="text/javascript" src="./Scripts/jquery-2.1.4.min.js"></script>
-        <!-- bootstrap js -->
-        <script type="text/javascript" src="./Scripts/bootstrap.min.js"></script>
-        <script type="text/javascript" src="./Scripts/script.js"></script>
+  <div class="container text-center">
+    <img id="logo" src="./imgs/twitch.png" class="" alt="twitch logo">
+    <div class="container">
+      <div class="header">
+        <button>All</button>
+        <button>Online</button>
+        <button>Offline</button>
+      </div>
+      <div id="users" class="display">
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="./Scripts/script.js"></script>
 </body>
 
 </html>
