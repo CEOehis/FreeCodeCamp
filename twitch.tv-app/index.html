@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title></title>
-	<!-- bootstrap -->
-	<link rel="stylesheet" type="text/css" href="./styles/bootstrap.min.css">
-	<!-- fontsawesome -->
-	<link rel="stylesheet" type="text/css" href="./styles/font-awesome.min.css">
-	<!-- my own stylesheet -->
-	<link rel="stylesheet" type="text/css" href="./styles/">
-	
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>Twitch.tv api | freecodecamp zipline</title>
+    <link rel="stylesheet" type="text/css" href="./Content/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./Content/skeleton.css">
+    <!-- fontsawesome -->
+    <link rel="stylesheet" type="text/css" href="./Content/font-awesome.min.css">
+    <!-- my own stylesheet -->
+    <link rel="stylesheet" type="text/css" href="./Content/main.css">
 </head>
+
 <body>
-
-
-
-
-<!-- jquery -->
-<script type="text/javascript" src="./scripts/jquery-3.2.1.min.js"></script>
-<!-- bootstrap js -->
-<script type="text/javascript" src="./scripts/bootstrap.min.js"></script>
+  <div class="container text-center">
+    <img id="logo" src="./imgs/twitch.png" class="" alt="twitch logo">
+    <div class="container">
+      <div class="header">
+        <button onclick="showUsers()" id="all">All</button>
+        <button onclick="showOnlineUsers()" id="online">Online</button>
+        <button onclick="showOfflineUsers()" id="offline">Offline</button>
+      </div>
+      <div id="users" class="display">
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="./Scripts/script.js"></script>
 </body>
+
 </html>
