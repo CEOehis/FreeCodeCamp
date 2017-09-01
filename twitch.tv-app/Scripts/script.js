@@ -1,5 +1,5 @@
 'use strict'
-let regularStreamers = ['ESL_SC2', 'OgamingSC2', 'cretetion', 'freecodecamp', 'storbeck', 'habathcx', 'RobotCaleb', 'noobs2ninjas']
+let regularStreamers = ['medrybw', 'ESL_SC2', 'OgamingSC2', 'cretetion', 'freecodecamp', 'storbeck', 'habathcx', 'RobotCaleb', 'noobs2ninjas']
 
 let queryUrl
 for (var i = 0; i < regularStreamers.length; i++) {
@@ -19,12 +19,14 @@ function getUserInfo (url) {
 }
 
 function handleResponse () {
+  console.log(this.response)
   parse(this.response)
 }
 
 function parse (jsonObj) {
   var obj
   var status
+  var stream
   var statusIcon
   if (jsonObj.hasOwnProperty('stream') && jsonObj.stream == null) {
     var url = jsonObj._links.channel
@@ -35,10 +37,12 @@ function parse (jsonObj) {
   if (jsonObj.hasOwnProperty('stream')) {
     obj = jsonObj.stream.channel
     status = 'online'
+    stream = ':  ' + jsonObj.stream.channel.status
     statusIcon = 'fa fa-twitch'
   } else {
     obj = jsonObj
     status = 'offline'
+    stream = ' '
     statusIcon = 'fa fa-exclamation'
   }
 
@@ -52,14 +56,20 @@ function parse (jsonObj) {
   var userImg = document.createElement('img')
   userImg.setAttribute('src', obj['logo'])
   if (obj['logo'] == null) userImg.setAttribute('src', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-2Y1NWPLa7p_IksODWXYsKcdCQ_jUy5VUntvCdiUvFCpYxET1')
-  var userSpan = document.createElement('span')
-  userSpan.setAttribute('class', 'user')
-  userSpan.textContent = obj['display_name']
+  var userSpanContainer = document.createElement('span')
+  userSpanContainer.setAttribute('class', 'user')
+  var userNameSpan = document.createElement('span')
+  userNameSpan.textContent = obj['display_name']
+  var userStreamSpan = document.createElement('span')
+  userStreamSpan.setAttribute('class', 'stream')
+  userStreamSpan.textContent = stream
   var userIcon = document.createElement('i')
   userIcon.setAttribute('class', statusIcon)
 
   userLink.appendChild(userImg)
-  userLink.appendChild(userSpan)
+  userLink.appendChild(userSpanContainer)
+  userSpanContainer.appendChild(userNameSpan)
+  userSpanContainer.appendChild(userStreamSpan)
   userLink.appendChild(userIcon)
   user.appendChild(userLink)
   list.appendChild(user)

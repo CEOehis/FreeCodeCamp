@@ -223,6 +223,12 @@ li img {
   width: 80%;
 }
 
+.stream {
+  font-weight: initial;
+  font-style: italic;
+  font-size: 0.8em
+}
+
 .display li>a>i {
   width: 10%;
 }
