@@ -65,3 +65,24 @@ function parse (jsonObj) {
   list.appendChild(user)
   display.appendChild(list)
 }
+
+function showOnlineUsers () {
+  showUsers()
+  var offline = document.getElementsByClassName('offline')
+  for (let i = 0; i < offline.length; i++) {
+    offline[i].style.display = 'none'
+  }
+}
+function showOfflineUsers () {
+  showUsers()
+  var online = document.getElementsByClassName('online')
+  for (let i = 0; i < online.length; i++) {
+    online[i].style.display = 'none'
+  }
+}
+function showUsers () {
+  var all = document.getElementById('users').querySelectorAll('li')
+  for (let i = 0; i < all.length; i++) {
+    all[i].style.display = 'flex'
+  }
+}
